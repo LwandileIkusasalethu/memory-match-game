@@ -1,0 +1,70 @@
+.image-card {
+    box-sizing: border-box;
+    border: 2px solid #00f5ff;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 245, 255, 0.65);
+    transform: none;
+    transition: opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-card:hover {
+    box-shadow: 0 0 14px rgba(0, 245, 255, 0.95), 0 0 24px rgba(0, 245, 255, 0.5);
+    transform: none;
+}
+
+@media (max-width: 1000px), (max-height: 600px) {
+    body {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 12px;
+        min-height: 100vh;
+        padding: 24px 12px;
+        overflow-x: hidden;
+    }
+
+    h1 {
+        max-width: 100%;
+        font-size: clamp(24px, 7vw, 36px);
+        overflow-wrap: anywhere;
+    }
+
+    #memory-game {
+        width: 100% !important;
+        max-width: 480px;
+        height: auto !important;
+        min-width: 0;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        grid-template-rows: none !important;
+        gap: clamp(4px, 1.5vw, 8px) !important;
+    }
+
+    #memory-game > section {
+        min-width: 0;
+    }
+
+    #memory-game img {
+        display: block;
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        touch-action: manipulation;
+    }
+
+    #timer {
+        position: static !important;
+        width: auto;
+        height: auto;
+        min-height: 30px;
+        padding: 5px 10px;
+    }
+
+    .restart-button {
+        position: static !important;
+        width: min(100%, 220px);
+        min-height: 44px;
+        margin: 4px auto 0 !important;
+    }
+}

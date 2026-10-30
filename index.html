@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Memory game</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a onclick="showBox()" href="index.html">Home</a></li>
+                 <li><a onclick="hideBox()" href="CARS.html">Cars</a></li>
+                 <li><a onclick="hideBox()" href="Soccer.html">Fifa</a></li>
+                 <li><a onclick="hideBox()" href="HALLOWEEN.html">Halloween</a></li>
+                 <li><a onclick="hideBox()" href="OCEANS.html">Oceans</a></li>
+                 <li><a onclick="hideBox()" href="MARVEL.html">Marvel</a></li>
+                 <li><a onclick="hideBox()" href="ANIME.html">Anime</a></li>
+                 <li><a onclick="hideBox()" href="Animals.html">Animals</a></li>
+                 <li><a onclick="hideBox()" href="DINOSAURS.html">Dinosaurs</a></li>
+                 <li><a onclick="hideBox()" href="SPACE.html">Space</a></li>
+                 <li><a onclick="hideBox()" href="Games.html"> Game</a></li>
+        </ul>
+    </nav>
+
+    <main class="home-screen">
+        <section class="welcome-card">
+            <p class="eyebrow">A game for your memory</p>
+            <h1>Memory Match</h1>
+            <p class="welcome-copy">Find every matching pair and see how quickly you can clear the board.</p>
+            <button type="button" id="startButton">Start playing</button>
+            <section class="best-time" aria-live="polite">
+                <span id="best-time">Best Time: --</span>
+            </section>
+        </section>
+
+        <section class="Questions" id="Question-box">
+            <h2>How to play</h2>
+            <p>Click cards to flip them and find matching pairs. Remember where each image is, match every pair, and try to beat your best time.</p>
+        </section>
+    </main>
+
+    <iframe id="gameFrame" title="Memory game" hidden></iframe>
+    <audio id="backgroundMusic" src="game.mp3" loop preload="auto"></audio>
+    <p id="music-status" role="status" aria-live="polite"></p>
+</body>
+</html>

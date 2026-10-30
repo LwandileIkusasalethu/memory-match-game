@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="restart.css">
+    <title>Animals</title>
+    <style>
+        body {
+            display: grid;
+            place-items: center;
+        }
+        
+        #memory-game {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5,1fr);
+            width: 500px;
+            height: 500px;
+            gap: 5px;
+            text-align: center;
+        
+        }
+
+        img{
+            width: 100px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        img:hover {
+            opacity: 0.6;
+            transition: 0.3s;
+            cursor: pointer;
+
+        }
+
+        h1 {
+            color: #fff;
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+
+    #video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+
+
+#timer {
+    border: 2px solid #fff;
+    border-radius: 5px;
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    top: -10px;
+}
+
+        
+    </style>
+</head>
+<body>
+
+    <video id="video-background" autoplay loop muted>
+        <source src="Ecotourism.mp4" type="video/mp4">
+    </video>
+    <h1>Nature</h1>
+    <section id="timer">Time: 0.0s</section>
+    <section id="memory-game"></section>
+
+
+    <script>
+       const sourceImages = [
+    "Fox.jpg",
+    "Bear.jpg",
+    "Deer.jpg",
+    "Lion.jpg",
+    "Tiger.jpg",
+    "Peacock.jpg",
+    "Squirrel.jpg",
+    "Kingfisher.jpg",
+    "Giraffi.jpg",
+    "Eagle.jpg",
+]
+const RoseImage = "Rose.jpg"
+
+const randomImages = [...sourceImages, ...sourceImages].sort((a, b) =>
+    Math.random() > 0.5 ? 1 : -1
+)
+
+console.log(randomImages)
+
+const gameContainer = document.querySelector("#memory-game")
+
+let counter = 0
+for (let randomImage of randomImages) {
+    gameContainer.innerHTML += `
+        <section>
+            <img class="image-card" data-idx="${counter}" src="IMAGES9/${RoseImage}">
+        </section>
+    `
+    counter++
+}
+
+const imageCards = document.querySelectorAll(".image-card")
+
+let firstImageName = ""
+let firstImageIdx = ""
+const matchedImages = []
+
+for (let imageCard of imageCards) {
+    imageCard.addEventListener("click", () => {
+        const idx = imageCard.dataset.idx
+        const imageName = randomImages[idx]
+        imageCard.src = `IMAGES9/${imageName}`
+
+        if (!firstImageName) {
+            firstImageName = imageName
+            firstImageIdx = idx
+        } else {
+            if (
+                firstImageName == imageName &&
+                firstImageIdx !== idx &&
+                !matchedImages.includes(imageName)
+            ) {
+                matchedImages.push(imageName)
+            }
+            firstImageName = ""
+            firstImageIdx = ""
+            clearImages()
+        }
+        console.log(matchedImages)
+    })
+}
+
+function clearImages() {
+    setTimeout(() => {
+        for (let imageCard of imageCards) {
+            const idx = imageCard.dataset.idx
+            const imageName = randomImages [idx] 
+            if(!matchedImages.icludes(imageName)) {
+                imageCard.src = `IMAGES9/${RoseImage}`
+            }
+        }
+    },400)
+}
+</script>
+</body>
+</html>   
