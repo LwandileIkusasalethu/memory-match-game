@@ -245,3 +245,27 @@ a:hover {
     }
 }
 
+@media (max-width: 600px) {
+    nav {
+        top: 10px;
+        width: calc(100% - 20px);
+        padding: 0.55rem 0.65rem;
+        border-radius: 18px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        gap: 0.15rem 0.5rem;
+    }
+
+    nav a {
+        display: block;
+        padding: 5px 3px;
+        font-size: clamp(12px, 3.5vw, 15px);
+        white-space: nowrap;
+    }
+
+    .home-screen {
+        padding-top: 170px;
+    }
+}
